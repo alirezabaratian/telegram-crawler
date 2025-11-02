@@ -1,11 +1,12 @@
 from telethon import TelegramClient
 import pandas as pd
 import asyncio
+import os
 
-api_id = 'YOUR_API_ID'
-api_hash = 'YOUR_API_HASH'
+api_id = os.getenv('API_ID')
+api_hash = os.getenv('API_HASH')
 
-channels = ['@channel1', '@channel2', '@channel3']
+channels = os.getenv('CHANNELS', '').split(',')
 
 async def main():
     client = TelegramClient('session', api_id, api_hash)
